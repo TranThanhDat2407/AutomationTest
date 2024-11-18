@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '22'
-          distribution: ''
+          distribution: 'temurin'  # Chỉ định phân phối JDK
 
       - name: Build with Maven
         run: mvn clean install
