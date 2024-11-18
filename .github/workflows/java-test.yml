@@ -3,10 +3,10 @@ name: Java CI
 on:
   push:
     branches:
-      - main
+      - dat
   pull_request:
     branches:
-      - main
+      - dat
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '22'
-          distribution: 'temurin'  # Chỉ định phân phối JDK
+          distribution: 'temurin'
 
       - name: Build with Maven
         run: mvn clean install
