@@ -63,7 +63,6 @@ public class CalculatorTest {
             }
         }
 
-        // Ghi workbook vào file
         try (FileOutputStream out = new FileOutputStream(new File("TestNGResults.xls"))) {
             workbook.write(out); // ghi workbook vào output stream
         } catch (FileNotFoundException e) {
@@ -90,6 +89,7 @@ public class CalculatorTest {
             TestNGResults.put("2",new Object[]{
                     1d, "Test Add 1 + 1", "2","pass"
             });
+
         } catch (Exception e){
             TestNGResults.put("2",new Object[]{
                     1d, "Test Add 1 + 1", "2","fail"
@@ -101,14 +101,15 @@ public class CalculatorTest {
     public void testSubtract() {
         try{
             Calculator calculator = new Calculator();
-            Assert.assertEquals(0, calculator.subtract(1, 1)); // Kiểm tra 1 + 1 = 2
+            Assert.assertEquals(3, calculator.subtract(1, 1)); // Kiểm tra 1 + 1 = 2
 
-            TestNGResults.put("2",new Object[]{
-                    1d, "Test Add 1 + 1", "0","pass"
+            TestNGResults.put("3",new Object[]{
+                    2d, "Test Substract 1 - 1", "0","pass"
             });
+
         } catch (Exception e){
-            TestNGResults.put("2",new Object[]{
-                    1d, "Test Add 1 + 1", "0","fail"
+            TestNGResults.put("3",new Object[]{
+                    2d, "Test Subtract 1 - 1", "0","fail"
             });
         }
     }
