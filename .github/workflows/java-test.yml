@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17' # Hoặc version JDK của bạn
+          java-version: '22' # Hoặc version JDK của bạn
 
       # Cache Maven dependencies
       - name: Cache Maven dependencies
