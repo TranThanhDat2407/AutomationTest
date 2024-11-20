@@ -3,9 +3,11 @@ name: Java CI
 on:
   push:
     branches:
+      - main
       - dat
   pull_request:
     branches:
+      - main
       - dat
 
 jobs:
