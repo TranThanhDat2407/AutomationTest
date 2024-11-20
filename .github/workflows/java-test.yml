@@ -3,27 +3,36 @@ name: Java CI
 on:
   push:
     branches:
-      - dat
+      - main
   pull_request:
     branches:
-      - dat
+      - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the code from the repository
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Set up JDK 22
-        uses: actions/setup-java@v2
+      # Set up Java environment
+      - name: Set up JDK
+        uses: actions/setup-java@v3
         with:
-          java-version: '22'
           distribution: 'temurin'
+          java-version: '17' # Hoặc version JDK của bạn
 
-      - name: Build with Maven
-        run: mvn clean install
+      # Cache Maven dependencies
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
 
-      - name: Run tests
-        run: mvn test
+      # Build the project and run tests
+      - name: Build and test
+        run: mvn clean verify
