@@ -101,7 +101,7 @@ public class CalculatorTest {
     public void testSubtract() {
         try{
             Calculator calculator = new Calculator();
-            Assert.assertEquals(2, calculator.subtract(1, 1)); // Kiểm tra 1 + 1 = 2
+            Assert.assertEquals(3, calculator.subtract(1, 1)); // Kiểm tra 1 + 1 = 2
 
             TestNGResults.put("3",new Object[]{
                     2d, "Test Substract 1 - 1", "0","pass"
