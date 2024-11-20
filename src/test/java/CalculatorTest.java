@@ -87,9 +87,11 @@ public class CalculatorTest {
             Calculator calculator = new Calculator();
             Assert.assertEquals(2, calculator.add(1, 1)); // Kiểm tra 1 + 1 = 2
 
+
             TestNGResults.put("2",new Object[]{
                     1d, "Test Add 1 + 1", "2","pass"
             });
+
         } catch (Exception e){
             TestNGResults.put("2",new Object[]{
                     1d, "Test Add 1 + 1", "2","fail"
@@ -103,12 +105,13 @@ public class CalculatorTest {
             Calculator calculator = new Calculator();
             Assert.assertEquals(0, calculator.subtract(1, 1)); // Kiểm tra 1 + 1 = 2
 
-            TestNGResults.put("2",new Object[]{
-                    1d, "Test Add 1 + 1", "0","pass"
+            TestNGResults.put("3",new Object[]{
+                    2d, "Test Substract 1 - 1", "0","pass"
             });
+
         } catch (Exception e){
             TestNGResults.put("2",new Object[]{
-                    1d, "Test Add 1 + 1", "0","fail"
+                    1d, "Test Add 1 - 1", "0","fail"
             });
         }
     }
