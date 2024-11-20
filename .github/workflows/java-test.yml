@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+    name: fck
     runs-on: ubuntu-latest
 
     steps:
