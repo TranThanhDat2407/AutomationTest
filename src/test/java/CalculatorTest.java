@@ -87,7 +87,7 @@ public class CalculatorTest {
             Assert.assertEquals(2, calculator.add(1, 1)); // Kiểm tra 1 + 1 = 2
 
             TestNGResults.put("2",new Object[]{
-                    1d, "Test Add 1 + 1", "2","pass"
+                       1d, "Test Add 1 + 1", "2","passs"
             });
 
         } catch (Exception e){
