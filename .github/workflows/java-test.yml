@@ -1,23 +1,26 @@
 name: Java CI
 
 on:
+  push:
+    branches:
+      - dat
   pull_request:
-    branches: [main]
+    branches:
+      - dat
 
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Java CI
-        run: ./gradlew build
-      - name: Maven Package
-        run: ./mvnw package
 
-  merge:
-    needs: check
-    if: ${{ success() }}
-    runs-on: ubuntu-latest
     steps:
-      - name: Merge
-        run: git merge origin/main
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build with Maven
+        run: mvn clean verify
