@@ -1,4 +1,4 @@
-name: Java CI 2
+name: Multi-Platform Test
 
 on:
   push:
@@ -9,10 +9,9 @@ on:
       - main
 
 jobs:
-  build:
-    name: fck
+  ubuntu-job:
+    name: Test on Ubuntu
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,6 +22,25 @@ jobs:
           distribution: 'temurin'
           java-version: '22'
 
-      - name: Build with Maven
-        run: mvn clean verify
+      - name: Build and Test on Ubuntu
+        run: |
+          echo "Running tests on Ubuntu"
+          mvn clean verify
 
+  windows-job:
+    name: Test on Windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '22'
+
+      - name: Build and Test on Windows
+        run: |
+          echo "Running tests on Windows"
+          mvn clean verify
