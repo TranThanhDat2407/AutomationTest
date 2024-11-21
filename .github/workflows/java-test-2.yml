@@ -9,9 +9,9 @@ on:
       - main
 
 jobs:
-  windows-job:
-    name: Test on Windows
-    runs-on: windows-latest
+  ubuntu-job:
+    name: Test on Ubuntu
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -22,7 +22,9 @@ jobs:
           distribution: 'temurin'
           java-version: '22'
 
-      - name: Build and Test on Windows
+      - name: Build and Test on Ubuntu
         run: |
-          echo "Running tests on Windows"
+          echo "Running tests on Ubuntu"
           mvn clean verify
+
+  
